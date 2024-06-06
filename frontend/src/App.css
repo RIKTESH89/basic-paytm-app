@@ -1,0 +1,10 @@
+.YourClass {
+    display:block;
+    /* other properties */
+  }
+  
+  @media only screen and (max-width: 768px) {
+      .YourClass {
+        display:none;
+      }
+  }
