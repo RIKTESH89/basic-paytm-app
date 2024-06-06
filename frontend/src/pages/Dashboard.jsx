@@ -23,7 +23,7 @@ export function Dashboard(){
     },[token]);
 
     useEffect(function(){
-        axios.get("http://localhost:3000/api/v1/account/balance",{
+        axios.get("https://basic-paytm-app-1.onrender.com/api/v1/account/balance",{
             headers:{
                 'Content-Type': 'application/json',
                 'authorization' : token

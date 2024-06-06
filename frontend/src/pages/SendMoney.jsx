@@ -34,7 +34,7 @@ export function SendMoney(){
                     <SignButton onClick={async function(){
                         console.log(id)
                         
-                        try{const res = await axios.post("http://localhost:3000/api/v1/account/transfer",
+                        try{const res = await axios.post("https://basic-paytm-app-1.onrender.com/api/v1/account/transfer",
                         {
                             to : id,
                             amount : money

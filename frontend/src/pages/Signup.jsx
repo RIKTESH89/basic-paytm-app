@@ -33,7 +33,7 @@ export function Signup() {
             <InputComponentLikeFirstName onChange={function(e){setPassword(e.target.value)}} name= {"Password"} placeholder={"123546"} />
             <SignButton onClick={ async function(){
                 try{
-                const response = await axios.post("http://localhost:3000/api/v1/user/signup",{
+                const response = await axios.post("https://basic-paytm-app-1.onrender.com/api/v1/user/signup",{
                     userName : userName,
                     lastName : lastName,
                     firstName : firstName,

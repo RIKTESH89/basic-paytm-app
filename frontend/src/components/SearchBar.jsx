@@ -18,7 +18,7 @@ useEffect(function(){
 
 useEffect(function(){
     
-        axios.get("http://localhost:3000/api/v1/user/bulk?filter="+filter,{
+        axios.get("https://basic-paytm-app-1.onrender.com/api/v1/user/bulk?filter="+filter,{
         headers:{
             'Content-Type': 'application/json',
             'authorization' : token
@@ -39,7 +39,7 @@ useEffect(function(){
 
 useEffect(function(){
     const getData = setTimeout(()=>{
-        axios.get("http://localhost:3000/api/v1/user/bulk?filter="+filter,{
+        axios.get("https://basic-paytm-app-1.onrender.com/api/v1/user/bulk?filter="+filter,{
         headers:{
             'Content-Type': 'application/json',
             'authorization' : token
