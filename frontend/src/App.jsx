@@ -19,7 +19,7 @@ function App() {
       <Route path='/signin' element={<Signin />}></Route>
       <Route path='/send' element={<SendMoney />}></Route>
       <Route path='/success' element={<TransactionSuccessful />}></Route>
-      <Route path='/home' element={<Home />}></Route>
+      <Route path='/' element={<Home />}></Route>
     </Routes>
       </BrowserRouter>
       </RecoilRoot>

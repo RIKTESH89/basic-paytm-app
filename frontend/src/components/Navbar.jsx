@@ -24,7 +24,7 @@ if(special=="Home"){
                 <div className="col-end-7 col-span-3 md:col-end-7 md:col-span-2 lg:col-end-7 lg:col-span-1 grid grid-cols-3 gap-4 font-medium md:text-lg mx-0 sm:px-4">
                 <Link className={classin} to="/signin">Sign in</Link>
                 <Link className={classup} to="/signup">Sign up</Link>
-                <Link className={classh} to="/home">Home</Link>
+                <Link className={classh} to="/">Home</Link>
                 </div>
             </div>
         </div>

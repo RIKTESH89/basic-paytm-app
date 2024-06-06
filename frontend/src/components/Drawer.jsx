@@ -39,7 +39,7 @@ export default function Drawer() {
                     )}
                     onClick={function(){
                       localStorage.setItem("token","");
-                      navigate("/home")
+                      navigate("/")
                     }}
                   >
                     Sign out
