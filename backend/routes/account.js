@@ -1,6 +1,6 @@
 const express = require("express");
 const { authMiddleware } = require("../middleware");
-const { Account, User } = require("../db");
+const { Account, User, TransactionModel } = require("../db");
 const { default: mongoose } = require("mongoose");
 
 const router = express.Router();
@@ -16,6 +16,12 @@ router.get("/balance", authMiddleware, async function (req, res) {
   });
 });
 
+router.get("/history",authMiddleware, async function(req,res){
+  const userId = req.userId;
+  const history = await TransactionModel.find({$or:[{from:userId},{to:userId}]});
+  res.json({history})
+})
+
 router.post("/transfer", authMiddleware, async function (req, res) {
   const session = await mongoose.startSession();
 
@@ -25,18 +31,28 @@ router.post("/transfer", authMiddleware, async function (req, res) {
   const money = req.body.amount;
   const userId = req.userId;
 
+  
+  
   const account1 = await Account.findOne({ userId: userId }).session(session);
-
+  
   if (!account1 || account1.balance < money) {
     await session.abortTransaction();
     return res.status(400).json({
       message: "Insufficient Balance",
-    });
-  }
+      });
+      }
+      
+      const toAccount = await Account.findOne({ userId: reciepent }).session(
+        session
+        );        
 
-  const toAccount = await Account.findOne({ userId: reciepent }).session(
-    session
-  );
+  await TransactionModel.create(
+    {
+      from: userId,
+      to: reciepent,
+      amount: money,
+    }
+  ).session(session);      
 
   if (!toAccount) {
     await session.abortTransaction();

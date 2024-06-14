@@ -44,10 +44,33 @@ const accountSchema = new mongoose.Schema({
   },
 });
 
+const Transaction = mongoose.Schema({
+  from: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+  to: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+  amount: {
+    type: Number,
+    required: true,
+  },
+  date: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
 const User = mongoose.model("User", userShema);
 const Account = mongoose.model("Account", accountSchema);
+const TransactionModel = mongoose.model("Transaction", Transaction);
 
 module.exports = {
   User,
   Account,
+  TransactionModel,
 };
